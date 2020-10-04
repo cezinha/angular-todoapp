@@ -1,0 +1,22 @@
+
+<h2>Todo List</h2>
+<mat-form-field class="example-full-width">
+  <mat-label>Item name</mat-label>
+  <input matInput placeholder="Ex. To do item" #itemName>
+</mat-form-field>
+<!-- (click) passes input value to add() and then clears the input -->
+<button mat-raised-button (click)="add(itemName.value); itemName.value=''">
+  add
+</button>
+
+<ul class="items">
+  <li *ngFor="let item of items">
+    <a routerLink="/detail/{{item.id}}">
+      <span class="badge">{{item.id}}</span> {{item.name}}
+    </a>
+    <button class="delete" title="delete item"
+      (click)="delete(item)">x</button>
+  </li>
+</ul>
+
+
